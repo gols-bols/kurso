@@ -8,10 +8,10 @@
 ## Основная часть
 Реализация выполнена в структуре Laravel-приложения:
 - маршруты: `routes/web.php`;
-- контроллеры: `app/Http/Controllers/AuthController.php`, `app/Http/Controllers/TicketController.php`;
-- модели: `app/Models/Ticket.php`;
+- контроллеры: `app/Http/Controllers/AuthController.php`, `app/Http/Controllers/TicketController.php`, базовый `app/Http/Controllers/Controller.php`;
+- модели: `app/Models/User.php`, `app/Models/Ticket.php`;
 - шаблоны интерфейса: `resources/views/...`;
-- точка входа: `public/index.php`.
+- точки входа: `public/index.php`, `artisan`.
 
 Текущий функционал:
 - вход/выход пользователей;
@@ -54,16 +54,25 @@
 - `routes/` — маршрутизация;
 - `resources/views/` — Blade-шаблоны;
 - `database/migrations/` — структура базы данных;
-- `public/` — входная точка web-приложения.
+- `public/` — входная точка web-приложения;
+- `artisan` — консольные команды Laravel.
 
 ## Приложение Б
-Пошаговый запуск:
+Пошаговый запуск на новом компьютере:
 1. `composer install`
 2. `cp .env.example .env`
-3. Создать БД MySQL `spk_tickets`
+3. Настроить доступ к MySQL в `.env`
 4. `php artisan key:generate`
 5. `php artisan migrate`
 6. `php artisan serve`
+
+## Предполетная проверка перед запуском
+1. `composer validate`
+2. `php artisan --version`
+3. `php artisan route:list`
+4. `php artisan migrate:status`
+
+> Важно: файл `.env` не хранится в Git (это локальная конфигурация машины/сервера).
 
 ## Отдельная презентация
 Для защиты проекта рекомендуется подготовить отдельную презентацию (10–15 слайдов):
