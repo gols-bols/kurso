@@ -1,0 +1,18 @@
+# GitHub language statistics should describe the Laravel application, not helper generators.
+scripts/** linguist-generated
+docs/** linguist-documentation
+docs_archive/** linguist-documentation
+postman/** linguist-documentation
+.postman/** linguist-documentation
+diploma-repo-public/** linguist-vendored
+spk-helpdesk-diploma/** linguist-vendored
+
+*.docx linguist-documentation
+*.pptx linguist-documentation
+*.odt linguist-documentation
+*.rtf linguist-documentation
+*.md linguist-documentation
+*.json linguist-documentation
+*.svg linguist-documentation
+*.png linguist-documentation
+*.pyc linguist-generated
