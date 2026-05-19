@@ -16,15 +16,27 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Администратор СПК',
                 'password' => 'password',
                 'role' => 'admin',
+                'campus' => null,
             ]
         );
 
-        $manager = User::query()->updateOrCreate(
-            ['email' => 'manager@spk.local'],
+        $mainManager = User::query()->updateOrCreate(
+            ['email' => 'manager-main@spk.local'],
             [
-                'name' => 'Менеджер СПК',
+                'name' => 'Менеджер главного корпуса',
                 'password' => 'password',
                 'role' => 'manager',
+                'campus' => 'main',
+            ]
+        );
+
+        $secondManager = User::query()->updateOrCreate(
+            ['email' => 'manager-k2@spk.local'],
+            [
+                'name' => 'Менеджер корпуса 2',
+                'password' => 'password',
+                'role' => 'manager',
+                'campus' => '2',
             ]
         );
 
@@ -34,10 +46,11 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Пользователь СПК',
                 'password' => 'password',
                 'role' => 'user',
+                'campus' => '1',
             ]
         );
 
-        Ticket::query()->firstOrCreate(
+        $printerTicket = Ticket::query()->firstOrCreate(
             [
                 'title' => 'Не работает принтер в кабинете 21',
                 'created_by' => $user->id,
@@ -46,31 +59,79 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Принтер включается, но документы остаются в очереди печати и не выводятся на устройство.',
                 'priority' => 'high',
                 'status' => 'open',
+                'requester_name' => $user->name,
+                'campus' => '1',
+                'room' => 'Кабинет 21',
+                'assignee_id' => null,
             ]
         );
 
-        Ticket::query()->firstOrCreate(
+        $projectorTicket = Ticket::query()->firstOrCreate(
             [
-                'title' => 'Требуется установка офисного пакета',
-                'created_by' => $manager->id,
+                'title' => 'Требуется настройка проектора',
+                'created_by' => $user->id,
             ],
             [
-                'description' => 'На новом рабочем месте необходимо установить базовый набор программ для подготовки учебных материалов.',
+                'description' => 'В аудитории нет изображения на проекторе, требуется проверить кабель и источник сигнала.',
                 'priority' => 'normal',
                 'status' => 'in_progress',
+                'requester_name' => $user->name,
+                'campus' => '2',
+                'room' => 'Аудитория 204',
+                'assignee_id' => $secondManager->id,
             ]
         );
 
-        Ticket::query()->firstOrCreate(
+        $networkTicket = Ticket::query()->firstOrCreate(
             [
-                'title' => 'Нет доступа к локальной сети',
+                'title' => 'Нет доступа к локальной сети в приемной',
                 'created_by' => $admin->id,
             ],
             [
                 'description' => 'Компьютер в методическом кабинете не получает сетевой адрес и не открывает внутренние ресурсы колледжа.',
                 'priority' => 'high',
                 'status' => 'resolved',
+                'requester_name' => 'Секретарь приемной комиссии',
+                'campus' => 'main',
+                'room' => 'Приемная',
+                'assignee_id' => $mainManager->id,
             ]
+        );
+
+        $libraryTicket = Ticket::query()->firstOrCreate(
+            [
+                'title' => 'Не работает интернет в библиотеке',
+                'created_by' => $user->id,
+            ],
+            [
+                'description' => 'В библиотеке отсутствует доступ к интернету на двух рабочих местах.',
+                'priority' => 'high',
+                'status' => 'closed',
+                'requester_name' => $user->name,
+                'campus' => '3',
+                'room' => 'Библиотека, зал 1',
+                'assignee_id' => $admin->id,
+            ]
+        );
+
+        $printerTicket->comments()->firstOrCreate(
+            ['body' => 'Заявка принята в журнал. Требуется проверить очередь печати и подключение устройства.'],
+            ['user_id' => $admin->id, 'type' => 'system']
+        );
+
+        $projectorTicket->comments()->firstOrCreate(
+            ['body' => 'Проверка назначена менеджеру корпуса 2. Нужно уточнить источник сигнала и состояние HDMI-кабеля.'],
+            ['user_id' => $secondManager->id, 'type' => 'comment']
+        );
+
+        $networkTicket->comments()->firstOrCreate(
+            ['body' => 'Проблема устранена после замены патч-корда и перезапуска сетевого оборудования.'],
+            ['user_id' => $mainManager->id, 'type' => 'comment']
+        );
+
+        $libraryTicket->comments()->firstOrCreate(
+            ['body' => 'Заявка закрыта после восстановления доступа к сети на рабочих местах библиотеки.'],
+            ['user_id' => $admin->id, 'type' => 'system']
         );
     }
 }

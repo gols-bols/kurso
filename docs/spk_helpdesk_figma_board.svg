@@ -1,0 +1,100 @@
+<svg width="1920" height="1400" viewBox="0 0 1920 1400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1400" fill="#F4EFE6"/>
+  <rect x="40" y="40" width="860" height="620" rx="28" fill="#FFF9F1" stroke="#D8C7AE"/>
+  <rect x="980" y="40" width="900" height="620" rx="28" fill="#FFF9F1" stroke="#D8C7AE"/>
+  <rect x="40" y="740" width="860" height="620" rx="28" fill="#FFF9F1" stroke="#D8C7AE"/>
+  <rect x="980" y="740" width="900" height="620" rx="28" fill="#FFF9F1" stroke="#D8C7AE"/>
+
+  <text x="72" y="92" fill="#8F4626" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="24" font-weight="700">Экран 1. Авторизация</text>
+  <rect x="245" y="155" width="450" height="350" rx="24" fill="#FFFFFF" stroke="#DCCDB4"/>
+  <text x="285" y="215" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="38" font-weight="700">Вход в систему</text>
+  <text x="285" y="250" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="18">Служба заявок СПК</text>
+  <rect x="285" y="290" width="370" height="58" rx="16" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <text x="305" y="325" fill="#8D7C67" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="18">Электронная почта</text>
+  <rect x="285" y="370" width="370" height="58" rx="16" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <text x="305" y="405" fill="#8D7C67" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="18">Пароль</text>
+  <rect x="285" y="450" width="180" height="50" rx="14" fill="#9C4F2D"/>
+  <text x="338" y="482" fill="white" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="18" font-weight="700">Войти</text>
+
+  <text x="1012" y="92" fill="#8F4626" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="24" font-weight="700">Экран 2. Журнал заявок</text>
+  <rect x="1012" y="118" width="836" height="110" rx="22" fill="url(#hero)" stroke="#DCCDB4"/>
+  <text x="1048" y="170" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="36" font-weight="700">Журнал заявок</text>
+  <text x="1048" y="202" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="18">Роли разделены, карточки информативны, статусы контрастные.</text>
+  <rect x="1690" y="145" width="120" height="36" rx="18" fill="#FFF7EC" stroke="#DCCDB4"/>
+  <text x="1718" y="168" fill="#8F4626" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" font-weight="700">ADMIN</text>
+
+  <rect x="1012" y="254" width="190" height="120" rx="18" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <rect x="1012" y="254" width="8" height="120" fill="#9C4F2D"/>
+  <text x="1038" y="288" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" font-weight="700">ОБЩИЙ ПОТОК</text>
+  <text x="1038" y="338" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="40" font-weight="700">18</text>
+  <text x="1038" y="360" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14">Все обращения</text>
+  <rect x="1220" y="254" width="190" height="120" rx="18" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <rect x="1220" y="254" width="8" height="120" fill="#D2A02F"/>
+  <text x="1246" y="288" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" font-weight="700">НОВЫЕ</text>
+  <text x="1246" y="338" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="40" font-weight="700">5</text>
+  <rect x="1428" y="254" width="190" height="120" rx="18" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <rect x="1428" y="254" width="8" height="120" fill="#2F7FC4"/>
+  <text x="1454" y="288" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" font-weight="700">В РАБОТЕ</text>
+  <text x="1454" y="338" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="40" font-weight="700">7</text>
+  <rect x="1636" y="254" width="190" height="120" rx="18" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <rect x="1636" y="254" width="8" height="120" fill="#3F8C57"/>
+  <text x="1662" y="288" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" font-weight="700">РЕШЕННЫЕ</text>
+  <text x="1662" y="338" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="40" font-weight="700">6</text>
+
+  <rect x="1012" y="404" width="836" height="200" rx="24" fill="#FFFFFF" stroke="#DCCDB4"/>
+  <text x="1042" y="444" fill="#8F4626" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="16" font-weight="700">Не работает проектор в кабинете 45</text>
+  <rect x="1668" y="423" width="130" height="32" rx="16" fill="#DFF1FF"/>
+  <text x="1700" y="444" fill="#0D5885" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" font-weight="700">В работе</text>
+  <text x="1042" y="478" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="16">Учебный корпус 1 · кабинет 45</text>
+  <text x="1042" y="514" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Заявитель: Карташов Илья Сергеевич</text>
+  <text x="1042" y="544" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Исполнитель: Якименко О.А.</text>
+  <rect x="1042" y="560" width="150" height="34" rx="14" fill="#F1ECE4"/>
+  <text x="1078" y="582" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" font-weight="700">Открыть</text>
+  <rect x="1206" y="560" width="170" height="34" rx="14" fill="#F1ECE4"/>
+  <text x="1242" y="582" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" font-weight="700">Редактировать</text>
+
+  <text x="72" y="792" fill="#8F4626" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="24" font-weight="700">Экран 3. Создание заявки</text>
+  <rect x="72" y="830" width="540" height="470" rx="24" fill="#FFFFFF" stroke="#DCCDB4"/>
+  <text x="108" y="885" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="30" font-weight="700">Новая заявка</text>
+  <rect x="108" y="920" width="468" height="52" rx="14" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <text x="128" y="952" fill="#8D7C67" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="17">Заголовок заявки</text>
+  <rect x="108" y="992" width="225" height="52" rx="14" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <text x="128" y="1024" fill="#8D7C67" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="17">Корпус</text>
+  <rect x="351" y="992" width="225" height="52" rx="14" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <text x="371" y="1024" fill="#8D7C67" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="17">Кабинет</text>
+  <rect x="108" y="1064" width="468" height="150" rx="14" fill="#FFFDF9" stroke="#DCCDB4"/>
+  <text x="128" y="1096" fill="#8D7C67" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="17">Подробное описание</text>
+  <rect x="108" y="1234" width="190" height="46" rx="14" fill="#9C4F2D"/>
+  <text x="151" y="1263" fill="white" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="17" font-weight="700">Сохранить</text>
+  <rect x="640" y="830" width="220" height="220" rx="20" fill="#FFF7EC" stroke="#DCCDB4"/>
+  <text x="668" y="875" fill="#8F4626" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="18" font-weight="700">Подсказки</text>
+  <text x="668" y="910" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">• Укажите корпус</text>
+  <text x="668" y="940" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">• Заполните кабинет</text>
+  <text x="668" y="970" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">• Опишите проблему</text>
+
+  <text x="1012" y="792" fill="#8F4626" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="24" font-weight="700">Экран 4. Карточка заявки</text>
+  <rect x="1012" y="830" width="836" height="470" rx="24" fill="#FFFFFF" stroke="#DCCDB4"/>
+  <text x="1050" y="884" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="32" font-weight="700">Не работает проектор в кабинете 45</text>
+  <rect x="1620" y="856" width="132" height="34" rx="17" fill="#DFF1FF"/>
+  <text x="1650" y="878" fill="#0D5885" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" font-weight="700">В работе</text>
+  <rect x="1050" y="925" width="470" height="295" rx="18" fill="#FFF9F1" stroke="#DCCDB4"/>
+  <text x="1080" y="970" fill="#8F4626" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="20" font-weight="700">Описание обращения</text>
+  <text x="1080" y="1012" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="16">В кабинете 45 не включается проектор. Требуется</text>
+  <text x="1080" y="1038" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="16">проверка подключения и работоспособности оборудования.</text>
+  <rect x="1550" y="925" width="262" height="295" rx="18" fill="#FFF9F1" stroke="#DCCDB4"/>
+  <text x="1580" y="970" fill="#8F4626" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="20" font-weight="700">Сведения</text>
+  <text x="1580" y="1010" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Заявитель: Карташов И.С.</text>
+  <text x="1580" y="1040" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Корпус: Учебный корпус 1</text>
+  <text x="1580" y="1070" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Кабинет: 45</text>
+  <text x="1580" y="1100" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Исполнитель: Якименко О.А.</text>
+  <text x="1580" y="1130" fill="#72614B" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Приоритет: Обычный</text>
+  <rect x="1050" y="1240" width="180" height="38" rx="14" fill="#F1ECE4"/>
+  <text x="1094" y="1265" fill="#2F261A" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15" font-weight="700">Назад к списку</text>
+
+  <defs>
+    <linearGradient id="hero" x1="1012" y1="118" x2="1848" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF8"/>
+      <stop offset="1" stop-color="#EFE1CE"/>
+    </linearGradient>
+  </defs>
+</svg>

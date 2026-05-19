@@ -18,6 +18,14 @@
             --success-text: #27573a;
             --danger-bg: #fbe7e3;
             --danger-text: #8f3626;
+            --status-open-bg: #fff3d8;
+            --status-open-text: #8a5a00;
+            --status-progress-bg: #dff1ff;
+            --status-progress-text: #0d5885;
+            --status-resolved-bg: #e3f7ea;
+            --status-resolved-text: #22663a;
+            --status-closed-bg: #ece7ff;
+            --status-closed-text: #5a4aa8;
             --shadow: 0 24px 60px rgba(72, 49, 23, 0.12);
         }
 
@@ -47,24 +55,93 @@
             padding: 32px 0 48px;
         }
 
+        .topbar {
+            width: min(1120px, calc(100% - 32px));
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 20px;
+            background: rgba(255, 252, 247, 0.74);
+            border: 1px solid rgba(220, 205, 180, 0.78);
+            box-shadow: 0 16px 34px rgba(72, 49, 23, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-mark {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #d28a4d);
+            color: #fff;
+            box-shadow: 0 10px 22px rgba(156, 79, 45, 0.22);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-link {
+            padding: 9px 12px;
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            background: rgba(156, 79, 45, 0.1);
+            color: var(--accent-dark);
+        }
+
         .hero {
             display: flex;
             justify-content: space-between;
             gap: 20px;
             align-items: flex-start;
             margin-bottom: 24px;
-            padding: 24px 28px;
-            border: 1px solid rgba(255, 255, 255, 0.45);
-            border-radius: 28px;
-            background: linear-gradient(135deg, rgba(255, 250, 242, 0.9), rgba(241, 229, 210, 0.82));
-            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            padding: 28px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(255, 251, 245, 0.96), rgba(238, 225, 206, 0.9)),
+                radial-gradient(circle at top right, rgba(156, 79, 45, 0.12), transparent 30%);
+            box-shadow: 0 30px 60px rgba(72, 49, 23, 0.16);
             backdrop-filter: blur(10px);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 10px;
+            background: linear-gradient(180deg, #b05f36 0%, #8f4626 100%);
         }
 
         .hero h1 {
             margin: 0 0 10px;
-            font-size: clamp(28px, 4vw, 42px);
-            line-height: 1.05;
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1;
+            letter-spacing: -0.03em;
+            overflow-wrap: anywhere;
         }
 
         .hero p {
@@ -78,12 +155,13 @@
             flex-shrink: 0;
             padding: 10px 14px;
             border-radius: 999px;
-            background: rgba(156, 79, 45, 0.1);
-            color: var(--accent-dark);
+            background: rgba(255, 250, 242, 0.78);
+            color: var(--accent);
             font-weight: 700;
             letter-spacing: 0.04em;
             text-transform: uppercase;
             font-size: 12px;
+            border: 1px solid rgba(156, 79, 45, 0.12);
         }
 
         .panel {
@@ -157,6 +235,16 @@
             transform: translateY(-1px);
         }
 
+        .button:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible,
+        a:focus-visible {
+            outline: 3px solid rgba(156, 79, 45, 0.22);
+            outline-offset: 2px;
+        }
+
         .button.secondary,
         .button-muted {
             background: rgba(114, 97, 75, 0.12);
@@ -168,28 +256,87 @@
             gap: 18px;
         }
 
+        .filters-grid {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            align-items: end;
+        }
+
         .tickets-grid {
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         }
 
         .ticket-card {
-            padding: 20px;
-            border-radius: 22px;
-            background: var(--panel-strong);
-            border: 1px solid rgba(220, 205, 180, 0.85);
+            position: relative;
+            overflow: hidden;
+            padding: 22px;
+            border-radius: 16px;
+            background:
+                linear-gradient(180deg, rgba(255, 253, 249, 0.98), rgba(248, 241, 232, 0.92));
+            border: 1px solid rgba(214, 197, 171, 0.9);
+            box-shadow: 0 18px 34px rgba(91, 64, 33, 0.08);
             display: grid;
             gap: 14px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 40px rgba(91, 64, 33, 0.12);
+        }
+
+        .ticket-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, rgba(176, 95, 54, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .ticket-card header {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: flex-start;
         }
 
         .ticket-card h3 {
             margin: 0;
-            font-size: 21px;
+            font-size: 22px;
+            line-height: 1.15;
+            overflow-wrap: anywhere;
         }
 
         .ticket-card p {
             margin: 0;
             color: var(--muted);
             line-height: 1.55;
+        }
+
+        .ticket-title-group {
+            display: grid;
+            gap: 8px;
+            padding-right: 24px;
+        }
+
+        .ticket-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .ticket-kicker::before {
+            content: "";
+            width: 18px;
+            height: 2px;
+            background: var(--accent);
         }
 
         .meta {
@@ -212,6 +359,289 @@
 
         .pill-muted {
             background: rgba(114, 97, 75, 0.12);
+            color: var(--muted);
+        }
+
+        .status-open {
+            background: var(--status-open-bg);
+            color: var(--status-open-text);
+        }
+
+        .status-progress {
+            background: var(--status-progress-bg);
+            color: var(--status-progress-text);
+        }
+
+        .status-resolved {
+            background: var(--status-resolved-bg);
+            color: var(--status-resolved-text);
+        }
+
+        .status-closed {
+            background: var(--status-closed-bg);
+            color: var(--status-closed-text);
+        }
+
+        .detail-list {
+            display: grid;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+            padding-top: 8px;
+            border-top: 1px solid rgba(220, 205, 180, 0.8);
+            overflow-wrap: anywhere;
+        }
+
+        .detail-list strong {
+            color: var(--text);
+        }
+
+        .detail-card {
+            padding: 20px;
+            border-radius: 16px;
+            background: linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(245, 237, 226, 0.9));
+            border: 1px solid rgba(214, 197, 171, 0.9);
+            box-shadow: 0 16px 34px rgba(84, 60, 31, 0.08);
+        }
+
+        .detail-card h2,
+        .detail-card h3 {
+            margin: 0 0 12px;
+        }
+
+        .detail-columns {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 18px;
+        }
+
+        .form-shell {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .form-panel {
+            display: grid;
+            gap: 16px;
+        }
+
+        .aside-stack {
+            display: grid;
+            gap: 16px;
+        }
+
+        .info-card {
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            border-radius: 16px;
+            background: linear-gradient(180deg, rgba(255, 253, 249, 0.98), rgba(246, 237, 224, 0.92));
+            border: 1px solid rgba(214, 197, 171, 0.9);
+            box-shadow: 0 16px 34px rgba(84, 60, 31, 0.08);
+        }
+
+        .info-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 6px;
+            background: linear-gradient(180deg, #b05f36 0%, #8f4626 100%);
+        }
+
+        .info-card h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+        }
+
+        .info-card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .ticket-hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .description-card {
+            min-height: 100%;
+        }
+
+        .description-card p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .wide-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--accent);
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(156, 79, 45, 0.12), rgba(156, 79, 45, 0.5), rgba(156, 79, 45, 0.12));
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px;
+        }
+
+        .stat-card {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 18px 18px 24px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(248, 239, 226, 0.86));
+            border: 1px solid rgba(214, 196, 170, 0.95);
+            box-shadow: 0 14px 34px rgba(88, 61, 31, 0.08);
+            min-height: 148px;
+        }
+
+        .stat-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 7px;
+            background: var(--accent);
+        }
+
+        .stat-card small {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .stat-card strong {
+            display: block;
+            margin-top: 10px;
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        .stat-card span {
+            display: block;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .stat-card.status-open-card::before {
+            background: #d2a02f;
+        }
+
+        .stat-card.status-progress-card::before {
+            background: #2f7fc4;
+        }
+
+        .stat-card.status-resolved-card::before {
+            background: #3f8c57;
+        }
+
+        .stat-card.status-closed-card::before {
+            background: #6955c4;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+            gap: 18px;
+        }
+
+        .chart-card {
+            padding: 20px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 253, 249, 0.98), rgba(246, 237, 224, 0.92));
+            border: 1px solid rgba(214, 197, 171, 0.9);
+            box-shadow: 0 16px 34px rgba(84, 60, 31, 0.08);
+        }
+
+        .chart-card h3 {
+            margin: 0 0 14px;
+        }
+
+        .bar-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .bar-row {
+            display: grid;
+            gap: 7px;
+        }
+
+        .bar-row header {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .bar-track {
+            overflow: hidden;
+            height: 12px;
+            border-radius: 999px;
+            background: rgba(114, 97, 75, 0.12);
+        }
+
+        .bar-fill {
+            min-width: 6px;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--accent), #d28a4d);
+        }
+
+        .dashboard-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .dashboard-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            padding: 13px 14px;
+            border-radius: 14px;
+            background: rgba(255, 250, 242, 0.76);
+            border: 1px solid rgba(220, 205, 180, 0.72);
+        }
+
+        .dashboard-row strong {
+            display: block;
+        }
+
+        .dashboard-row small {
             color: var(--muted);
         }
 
@@ -251,11 +681,100 @@
             background: #fffdf9;
             color: var(--text);
             font: inherit;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: rgba(156, 79, 45, 0.55);
+            box-shadow: 0 0 0 4px rgba(156, 79, 45, 0.08);
+            background: #fff;
         }
 
         textarea {
             min-height: 180px;
             resize: vertical;
+        }
+
+        .comment-form {
+            display: grid;
+            gap: 14px;
+            padding: 18px;
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(255, 253, 249, 0.98), rgba(239, 226, 207, 0.74));
+            border: 1px solid rgba(214, 197, 171, 0.9);
+        }
+
+        .comment-form textarea {
+            min-height: 120px;
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 14px;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 7px;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(156, 79, 45, 0.62), rgba(156, 79, 45, 0.1));
+        }
+
+        .timeline-item {
+            position: relative;
+            display: grid;
+            gap: 10px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 18px;
+            left: -18px;
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 0 5px rgba(156, 79, 45, 0.12);
+        }
+
+        .timeline-card {
+            padding: 16px 18px;
+            border-radius: 16px;
+            background: rgba(255, 253, 249, 0.95);
+            border: 1px solid rgba(214, 197, 171, 0.9);
+            box-shadow: 0 12px 28px rgba(84, 60, 31, 0.07);
+        }
+
+        .timeline-system .timeline-card {
+            background: rgba(238, 247, 240, 0.96);
+            border-color: rgba(63, 140, 87, 0.22);
+        }
+
+        .timeline-card header {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .timeline-card header span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .timeline-card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6;
         }
 
         .footer-note {
@@ -286,10 +805,43 @@
             .hero {
                 flex-direction: column;
             }
+
+            .detail-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .form-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar,
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
+@auth
+    <nav class="topbar">
+        <a class="brand" href="{{ route('tickets.index') }}">
+            <span class="brand-mark">СП</span>
+            <span>СПК Helpdesk</span>
+        </a>
+        <div class="nav-links">
+            <a class="nav-link {{ request()->routeIs('tickets.dashboard') ? 'active' : '' }}" href="{{ route('tickets.dashboard') }}">Дашборд</a>
+            <a class="nav-link {{ request()->routeIs('tickets.index') ? 'active' : '' }}" href="{{ route('tickets.index') }}">Журнал</a>
+            @if(auth()->user()->role === 'user')
+                <a class="nav-link {{ request()->routeIs('tickets.create') ? 'active' : '' }}" href="{{ route('tickets.create') }}">Новая заявка</a>
+            @endif
+        </div>
+    </nav>
+@endauth
 @yield('content')
 </body>
 </html>
